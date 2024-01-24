@@ -3,7 +3,6 @@
 -- Add any additional keymaps here
 
 vim.g.mapleader = " "
-vim.keymap.set("n", "<leader>ex", ":Ex <CR>")
 vim.keymap.set("i", "jk", "<Esc>")
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
