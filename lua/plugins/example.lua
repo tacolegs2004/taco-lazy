@@ -8,7 +8,7 @@ if true then return {} end
 -- * add extra plugins
 -- * disable/enabled LazyVim plugins
 -- * override the configuration of LazyVim plugins
-return {
+local plugins = {
   -- add gruvbox
 
   {
@@ -19,13 +19,13 @@ return {
     },
   },
 
-  { "subnut/nvim-ghost.nvim" },
   -- change trouble config
   {
     "folke/trouble.nvim",
     -- opts will be merged with the parent spec
     opts = { use_diagnostic_signs = true },
   },
+  { "subnut/nvim-ghost.nvim" },
 
   -- add symbols-outline
   {
@@ -212,3 +212,9 @@ return {
     end,
   },
 }
+
+require("lazy").setup(plugins, {
+  change_detection = {
+    notify = false,
+  },
+})

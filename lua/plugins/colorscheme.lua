@@ -1,9 +1,12 @@
 return {
-  "craftzdog/solarized-osaka.nvim",
-  lazy = false,
-  priority = 1000,
-  opts = {},
-  config = function()
-    vim.cmd("colorscheme solarized-osaka")
-  end,
+  {
+    "catppuccin/nvim",
+    name = "catppuccin",
+    lazy = false,
+    priority = 1000,
+  },
+  {
+    "craftzdog/solarized-osaka.nvim",
+  },
+  { "ellisonleao/gruvbox.nvim" },
 }
