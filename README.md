@@ -3,6 +3,10 @@
 ## Overview
 taco-nvim is my personal Neovim config based off of [LazyVim](https://github.com/LazyVim/LazyVim)
 
+In order to install it on your machine, simply run:
+
+`gh repo clone tacolegs2004/taco-nvim ~/.config/nvim`
+
 ## Key Features
 
 ### 1. Tree-sitter Integration
