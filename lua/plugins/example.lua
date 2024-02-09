@@ -20,13 +20,26 @@ local plugins = {
     "folke/tokyonight.nvim",
   },
   {
-    "NvChad/base46",
-    branch = "v2.0",
-    build = function()
-      require("base46").load_all_highlights()
+    "nvim-neorg/neorg",
+    build = ":Neorg sync-parsers",
+    -- tag = "*",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    config = function()
+      require("neorg").setup({
+        load = {
+          ["core.defaults"] = {}, -- Loads default behaviour
+          ["core.concealer"] = {}, -- Adds pretty icons to your documents
+          ["core.dirman"] = { -- Manages Neorg workspaces
+            config = {
+              workspaces = {
+                notes = "~/Documents/notes/",
+              },
+            },
+          },
+        },
+      })
     end,
   },
-
   -- change trouble config
   {
     "folke/trouble.nvim",
@@ -167,7 +180,6 @@ local plugins = {
       },
     },
   },
-
   -- Use <tab> for completion and snippets (supertab)
   -- first: disable default <tab> and <s-tab> behavior in LuaSnip
   {
@@ -226,58 +238,3 @@ require("lazy").setup(plugins, {
     notify = false,
   },
 })
-
--- require("catppuccin").setup({
---   flavour = "mocha", -- latte, frappe, macchiato, mocha
---   background = { -- :h background
---     light = "latte",
---     dark = "mocha",
---   },
---   background_color = "#000000",
---   transparent_background = true, -- disables setting the background color.
---   show_end_of_buffer = false, -- shows the '~' characters after the end of buffers
---   term_colors = false, -- sets terminal colors (e.g. `g:terminal_color_0`)
---   dim_inactive = {
---     enabled = false, -- dims the background color of inactive window
---     shade = "dark",
---     percentage = 0.15, -- percentage of the shade to apply to the inactive window
---   },
---   no_italic = false, -- Force no italic
---   no_bold = false, -- Force no bold
---   no_underline = false, -- Force no underline
---   styles = { -- Handles the styles of general hi groups (see `:h highlight-args`):
---     comments = { "italic" }, -- Change the style of comments
---     conditionals = { "italic" },
---     loops = {},
---     functions = {},
---     keywords = {},
---     strings = {},
---     variables = {},
---     numbers = {},
---     booleans = {},
---     properties = {},
---     types = {},
---     operators = {},
---   },
---   color_overrides = {},
---   custom_highlights = {},
---   integrations = {
---     cmp = true,
---     gitsigns = true,
---     nvimtree = true,
---     treesitter = true,
---     notify = false,
---     mini = {
---       enabled = true,
---       indentscope_color = "",
---     },
---     -- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
---   },
--- })
---
--- -- setup must be called before loading
--- -- vim.cmd([[colorscheme catppuccin]])
---
--- require("notify").setup({
---   background_colour = "#000000",
--- })

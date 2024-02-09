@@ -29,6 +29,7 @@ return {
       ensure_installed = {
         "tsserver",
         "html",
+        "typescript-language-server",
         "cssls",
         "tailwindcss",
         "svelte",
